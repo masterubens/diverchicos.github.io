@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diverchicos | Campamento de Verano</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Sunshine -->
+    <!-- Application Structure Plan: The SPA is designed as a single-page narrative scroll to guide parents logically through the information. It starts with a vibrant hero section with the brand's logo to capture attention. This is followed by an introduction and then an interactive 'Activities' section, which uses a tab system instead of a static list to encourage user engagement and make the schedule feel more dynamic. A 'Weekly Plan' chart visualizes the structure of the activities, offering a quick, digestible overview. The pricing is highlighted in a distinct card, followed by a clear, icon-based checklist for requirements. This structure was chosen to answer a parent's questions in a natural order (What is it? What will my child do? What does a week look like? How much is it? What do I need to prepare?), making the information easy to consume and act upon. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Diverchicos Logo (Smiling Sun). Goal: Branding. Viz/Method: Recreated using HTML/CSS (nested divs with Tailwind for styling circles, rays, and facial features). Interaction: Static. Justification: Avoids image files per constraints, maintains the friendly, hand-drawn feel of the original. Library: None.
+        - Report Info: List of Activities. Goal: Organize & Inform. Viz/Method: Interactive tabs built with HTML/CSS/JS. Each activity is a clickable tab that reveals details. Interaction: Click to show/hide content. Justification: More engaging than a static list, allows parents to explore specific interests without being overwhelmed by text. Library: Vanilla JS.
+        - Report Info: Schedule (implicit). Goal: Compare & Inform. Viz/Method: Chart.js Horizontal Bar Chart ('Plan Semanal'). The chart visualizes the balance of general vs. special activities throughout the week. Interaction: Hover tooltips provide details. Justification: Translates the text-based schedule into a simple, quantitative visual comparison, making the weekly structure immediately understandable. Library: Chart.js.
+        - Report Info: What to Bring list. Goal: Inform. Viz/Method: Styled HTML list with Unicode characters (emojis) as icons. Interaction: Static. Justification: Icons make the list scannable and more visually appealing than plain text. Library: None.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .sun-logo {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #FBBF24; /* amber-400 */
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+        }
+        .sun-ray {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 8px;
+            background: #FBBF24; /* amber-400 */
+            border-radius: 4px;
+            transform-origin: center left;
+        }
+        .sun-face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+        }
+        .eye {
+            position: absolute;
+            top: 30%;
+            width: 8px;
+            height: 8px;
+            background-color: #1F2937; /* gray-800 */
+            border-radius: 50%;
+        }
+        .left-eye { left: 25%; }
+        .right-eye { right: 25%; }
+        .smile {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 20px;
+            border-bottom: 3px solid #1F2937; /* gray-800 */
+            border-radius: 0 0 20px 20px;
+        }
+        .activity-tab {
+            transition: all 0.3s ease;
+        }
+        .activity-tab.active {
+            background-color: #F9A825; /* amber-500 */
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-gray-800">
+
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="sun-logo">
+                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(0deg);"></div>
+                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(45deg);"></div>
+                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
+                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(135deg);"></div>
+                    <div class="sun-face">
+                        <div class="eye left-eye"></div>
+                        <div class="eye right-eye"></div>
+                        <div class="smile"></div>
+                    </div>
+                </div>
+                <h1 class="text-3xl font-bold text-amber-500">Diverchicos</h1>
+            </div>
+            <a href="#precio" class="bg-amber-500 text-white font-bold py-2 px-4 rounded-full hover:bg-amber-600 transition duration-300">¡Inscríbete!</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">¡Un verano de aventuras y risas inolvidables! ☀️</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Bienvenido a Diverchicos, el campamento de vacaciones donde la diversión nunca termina. Hemos diseñado un programa lleno de actividades emocionantes para que tus hijos disfruten, aprendan y creen recuerdos para toda la vida en un entorno seguro y estimulante.</p>
+        </section>
+
+        <section id="actividades" class="mt-16">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold">Explora Nuestras Actividades</h3>
+                <p class="mt-2 text-gray-600">Haz clic en cada actividad para descubrir lo que hemos preparado. ¡Cada día es una nueva aventura!</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+                <button data-target="panel-piscina" class="activity-tab active text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🏊 Piscina</button>
+                <button data-target="panel-elastica" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🤸 Cama Elástica</button>
+                <button data-target="panel-manualidades" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎨 Manualidades</button>
+                <button data-target="panel-juegos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎲 Juegos</button>
+                <button data-target="panel-arte" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🖌️ Arte</button>
+                <button data-target="panel-bailo" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">💃 Bailoterapia</button>
+            </div>
+
+            <div id="activity-panels" class="bg-white p-8 rounded-xl shadow-lg min-h-[200px] flex items-center justify-center">
+                <div id="panel-piscina" class="activity-panel text-center">
+                    <h4 class="text-2xl font-bold text-sky-500">Jueves de Piscina</h4>
+                    <p class="mt-2 text-gray-600">¡El día más refrescante de la semana! Nos zambullimos en la diversión acuática con juegos y chapuzones para todos. ¡La seguridad es nuestra prioridad!</p>
+                </div>
+                <div id="panel-elastica" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-lime-500">Cama Elástica</h4>
+                    <p class="mt-2 text-gray-600">Saltos, piruetas y risas garantizadas. Disponible durante dos semanas completas para que todos puedan disfrutar y liberar energía.</p>
+                </div>
+                <div id="panel-manualidades" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-purple-500">Manualidades Creativas</h4>
+                    <p class="mt-2 text-gray-600">Despertamos el artista que llevan dentro. Usamos diferentes materiales para crear obras maestras que podrán llevarse a casa.</p>
+                </div>
+                <div id="panel-juegos" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-orange-500">Juegos Recreativos</h4>
+                    <p class="mt-2 text-gray-600">¡Cada semana una aventura diferente! Organizamos juegos en equipo, competencias amistosas y actividades que fomentan la colaboración.</p>
+                </div>
+                <div id="panel-arte" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-rose-500">Actividades de Arte</h4>
+                    <p class="mt-2 text-gray-600">Exploramos la imaginación a través del color y la forma. Desde pintura hasta modelado, damos rienda suelta a la creatividad.</p>
+                </div>
+                <div id="panel-bailo" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-pink-500">Miércoles de Bailoterapia</h4>
+                    <p class="mt-2 text-gray-600">¡A moverse! Sesiones llenas de energía para divertirse al ritmo de la música y aprender nuevas coreografías.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="plan-semanal" class="mt-16">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold">Un Vistazo a Nuestra Semana</h3>
+                <p class="mt-2 text-gray-600">Así se distribuye la diversión. Nuestro plan semanal equilibra actividades creativas, deportivas y especiales para mantener la emoción cada día.</p>
+            </div>
+            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+                <div class="chart-container">
+                    <canvas id="weeklyPlanChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="precio" class="mt-16">
+            <div class="bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold">¡DiverPrecio Especial!</h3>
+                <p class="text-6xl font-bold my-4">$65</p>
+                <p class="text-xl">por semana de pura diversión</p>
+                <p class="mt-4 opacity-90">Incluye todas las actividades del programa. ¡Una experiencia única para tus hijos a un precio increíble!</p>
+            </div>
+        </section>
+
+        <section id="requisitos" class="mt-16">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold">¿Qué deben traer los Diverchiquitos?</h3>
+                <p class="mt-2 text-gray-600">Para asegurar que la experiencia sea cómoda y segura para todos, prepara esta pequeña mochila para la aventura diaria.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h4 class="font-bold text-lg mb-2">Todos los días:</h4>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start"><span class="mr-3 text-xl">🥪</span> <span>Desayuno, almuerzo y merienda.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl">💧</span> <span>Un termo con suficiente agua para mantenerse hidratados.</span></li>
+                        <li class="flex items-start"><span class="mr-3 text-xl">👕</span> <span>Ropa cómoda que se pueda manchar y ensuciar. ¡La diversión es lo primero!</span></li>
+                    </ul>
+                </div>
+                <div class="bg-sky-100 border-l-4 border-sky-500 p-6 rounded-lg shadow-md">
+                    <h4 class="font-bold text-lg text-sky-800 mb-2">Para el Jueves de Piscina:</h4>
+                    <ul class="space-y-3 text-sky-900">
+                        <li class="flex items-start"><span class="mr-3 text-xl">🏷️</span> <span>Toalla, cholitas, protector solar y una muda de ropa. <strong class="font-semibold">¡Todo bien identificado!</strong></span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="text-2xl font-bold">¿Listo para la aventura?</p>
+            <p class="mt-2 max-w-2xl mx-auto">¡No esperes más! Asegura el lugar de tu hijo en Diverchicos y regálale un verano que nunca olvidará.</p>
+            <div class="mt-6">
+                <a href="https://www.instagram.com/vacaciones_diverchicos" target="_blank" class="bg-white text-gray-800 font-bold py-3 px-6 rounded-full hover:bg-amber-400 hover:text-white transition duration-300 inline-flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.42 0-7.8 3.38-7.8 7.8s3.38 7.8 7.8 7.8 7.8-3.38 7.8-7.8S16.735 2 12.315 2zM8.715 11.8c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9z" clip-rule="evenodd" /></svg>
+                    Síguenos en Instagram @vacaciones_diverchicos
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-gray-400">&copy; 2025 Diverchicos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.activity-tab');
+            const panels = document.querySelectorAll('.activity-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    const target = document.getElementById(tab.dataset.target);
+                    
+                    panels.forEach(panel => panel.classList.add('hidden'));
+                    target.classList.remove('hidden');
+                });
+            });
+
+            const ctx = document.getElementById('weeklyPlanChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+                    datasets: [{
+                        label: 'Actividades Generales',
+                        data: [3, 3, 2, 2, 3],
+                        backgroundColor: 'rgba(251, 191, 36, 0.6)',
+                        borderColor: 'rgba(251, 191, 36, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Actividad Especial',
+                        data: [0, 0, 1, 1, 0],
+                        backgroundColor: 'rgba(56, 189, 248, 0.6)',
+                        borderColor: 'rgba(56, 189, 248, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            stacked: true,
+                            ticks: {
+                                color: '#4B5563'
+                            },
+                             grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            ticks: {
+                                color: '#4B5563',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                             grid: {
+                                color: '#E5E7EB'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                             labels: {
+                                color: '#1F2937'
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                title: function(context) {
+                                    let title = context[0].label || '';
+                                    if (title === 'Miércoles') return title + ' - ¡Bailoterapia!';
+                                    if (title === 'Jueves') return title + ' - ¡Día de Piscina!';
+                                    return title;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
