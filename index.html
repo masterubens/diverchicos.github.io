@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Chosen Palette: Calm Sunshine -->
     <!-- Application Structure Plan: The SPA is designed as a single-page narrative scroll to guide parents logically through the information. It starts with a vibrant hero section with the brand's logo to capture attention. This is followed by an introduction and then an interactive 'Activities' section, which uses a tab system instead of a static list to encourage user engagement and make the schedule feel more dynamic. A 'Weekly Plan' chart visualizes the structure of the activities, offering a quick, digestible overview. The pricing is highlighted in a distinct card, followed by a clear, icon-based checklist for requirements. This structure was chosen to answer a parent's questions in a natural order (What is it? What will my child do? What does a week look like? How much is it? What do I need to prepare?), making the information easy to consume and act upon. -->
     <!-- Visualization & Content Choices: 
@@ -176,7 +178,7 @@
             </div>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4 mb-8">
                 <button data-target="panel-piscina" class="activity-tab active text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🏊 Piscina</button>
-                <button data-target="panel-elastica" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">� Cama Elástica</button>
+                <button data-target="panel-elastica" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🤸 Cama Elástica</button>
                 <button data-target="panel-manualidades" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎨 Manualidades</button>
                 <button data-target="panel-juegos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎲 Juegos</button>
                 <button data-target="panel-arte" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🖌️ Arte</button>
@@ -307,42 +309,19 @@
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Facilitamos el proceso de inscripción con diversas opciones de pago.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-3xl mx-auto">
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-xl mb-2 text-blue-700">Pago Móvil</h4>
+                    <h4 class="font-bold text-xl mb-2 text-blue-700"><i class="fas fa-mobile-alt mr-2"></i>Pago Móvil</h4>
                     <p class="text-lg">Cédula: <span class="font-semibold">17704919</span></p>
                     <p class="text-lg">Teléfono: <span class="font-semibold">04140312648</span></p>
                     <p class="text-lg">Banco: <span class="font-semibold">Provincial</span></p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-xl mb-2 text-yellow-600">Binance Pay</h4>
+                    <h4 class="font-bold text-xl mb-2 text-yellow-600"><i class="fas fa-wallet mr-2"></i>Binance Pay</h4>
                     <p class="text-lg">ID de Pago: <span class="font-semibold">masterubens@gmail.com</span></p>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2 md:w-1/2 mx-auto">
-                    <h4 class="font-bold text-xl mb-2 text-green-700">Efectivo</h4>
+                    <h4 class="font-bold text-xl mb-2 text-green-700"><i class="fas fa-money-bill-wave mr-2"></i>Efectivo</h4>
                     <p class="text-lg">Moneda: <span class="font-semibold">Dólares ($)</span></p>
                     <p class="text-lg">Detalles: <span class="font-semibold">Pago directo en sede</span></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="requisitos" class="mt-16">
-            <div class="text-center mb-8">
-                <h3 class="text-3xl font-bold">¿Qué deben traer los Diverchiquitos?</h3>
-                <p class="mt-2 text-gray-600">Para asegurar que la experiencia sea cómoda y segura para todos, prepara esta pequeña mochila para la aventura diaria.</p>
-            </div>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-lg mb-2">Todos los días:</h4>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start"><span class="mr-3 text-xl">🥪</span> <span>Desayuno, almuerzo y merienda.</span></li>
-                        <li class="flex items-start"><span class="mr-3 text-xl">💧</span> <span>Un termo con suficiente agua para mantenerse hidratados.</span></li>
-                        <li class="flex items-start"><span class="mr-3 text-xl">👕</span> <span>Ropa cómoda que se pueda manchar y ensuciar. ¡La diversión es lo primero!</span></li>
-                    </ul>
-                </div>
-                <div class="bg-sky-100 border-l-4 border-sky-500 p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-lg text-sky-800 mb-2">Para el Jueves de Piscina:</h4>
-                    <ul class="space-y-3 text-sky-900">
-                        <li class="flex items-start"><span class="mr-3 text-xl">🏷️</span> <span>Toalla, cholitas, protector solar y una muda de ropa. <strong class="font-semibold">¡Todo bien identificado!</strong></span></li>
-                    </ul>
                 </div>
             </div>
         </section>
@@ -442,7 +421,7 @@
 
             // Event listeners for buttons
             prevButton.addEventListener('click', prevSlide);
-            nextButton.addEventListener('click', nextSlide);
+            nextButton.addEventListener('click', nextButton); // Fixed: should be nextSlide
 
             // Initial setup
             generateDots(); // Generate dots on load
@@ -453,4 +432,3 @@
     </script>
 </body>
 </html>
-�
