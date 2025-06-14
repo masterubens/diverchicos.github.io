@@ -62,17 +62,16 @@
             display: flex; /* Use flex to center content vertically if there's remaining space */
             align-items: center; /* Center content vertically */
             justify-content: center; /* Center content horizontally */
-            height: 350px; /* Fixed height for the slide container */
+            /* Removed fixed height here, so it adapts to content */
             background-color: #f0f0f0; /* Optional: A background color for letterboxing */
         }
 
         .carousel-slide img,
         .carousel-slide video {
             width: 100%;
-            max-height: 500px; /* Increased max-height to better accommodate portrait images/videos */
-            object-fit: contain; /* Ensures entire media is visible, adds letterboxing if aspect ratio differs */
+            height: auto; /* Allow height to adapt to aspect ratio */
+            /* Removed max-height, min-height, and object-fit */
             border-radius: 0.75rem;
-            min-height: 200px; /* Minimum height to prevent very wide media from becoming too small */
         }
 
         .carousel-button {
