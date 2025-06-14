@@ -63,8 +63,8 @@
 
         .carousel-slide img {
             width: 100%;
-            height: 350px; /* Fixed height for consistency */
-            object-fit: cover; /* Cover ensures image fills the space */
+            max-height: 350px; /* Changed to max-height */
+            object-fit: contain; /* Changed to contain to prevent cutting */
             border-radius: 0.75rem;
         }
 
@@ -271,6 +271,9 @@
                 <div class="carousel-slide">
                     <img src="Diverchicos 5.jpeg" alt="Más diversión en Diverchicos 5" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+5';">
                 </div>
+                <div class="carousel-slide">
+                    <img src="Diverchicos 6.jpeg" alt="Un momento más en Diverchicos 6" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+6';">
+                </div>
 
                 <!-- Carousel Navigation Buttons -->
                 <button class="carousel-button prev">&#10094;</button>
@@ -283,6 +286,7 @@
                     <span class="dot" data-slide="2"></span>
                     <span class="dot" data-slide="3"></span>
                     <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
                 </div>
             </div>
         </section>
