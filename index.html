@@ -21,52 +21,7 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .sun-logo {
-            position: relative;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #FBBF24; /* amber-400 */
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
-        }
-        .sun-ray {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 120%;
-            height: 8px;
-            background: #FBBF24; /* amber-400 */
-            border-radius: 4px;
-            transform-origin: center left;
-        }
-        .sun-face {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60%;
-            height: 60%;
-        }
-        .eye {
-            position: absolute;
-            top: 30%;
-            width: 8px;
-            height: 8px;
-            background-color: #1F2937; /* gray-800 */
-            border-radius: 50%;
-        }
-        .left-eye { left: 25%; }
-        .right-eye { right: 25%; }
-        .smile {
-            position: absolute;
-            bottom: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
-            border-bottom: 3px solid #1F2937; /* gray-800 */
-            border-radius: 0 0 20px 20px;
-        }
+        /* Removed .sun-logo, .sun-ray, .sun-face, .eye, .smile as image is now used */
         .activity-tab {
             transition: all 0.3s ease;
         }
@@ -97,17 +52,8 @@
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <div class="sun-logo">
-                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(0deg);"></div>
-                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(45deg);"></div>
-                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(90deg);"></div>
-                    <div class="sun-ray" style="transform: translate(-50%, -50%) rotate(135deg);"></div>
-                    <div class="sun-face">
-                        <div class="eye left-eye"></div>
-                        <div class="eye right-eye"></div>
-                        <div class="smile"></div>
-                    </div>
-                </div>
+                <!-- Logo Image Added Here -->
+                <img src="Logo Diverchicos.jpg" alt="Logo Diverchicos" class="h-16 w-auto rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFD700/000000?text=Logo';" loading="lazy">
                 <h1 class="text-3xl font-bold text-amber-500">Diverchicos</h1>
             </div>
             <a href="#precio" class="bg-amber-500 text-white font-bold py-2 px-4 rounded-full hover:bg-amber-600 transition duration-300">¡Inscríbete!</a>
@@ -130,6 +76,12 @@
             <div class="bg-white p-6 rounded-xl shadow-lg inline-block mt-6">
                 <p class="text-2xl font-bold text-blue-600">Colegio Belén</p>
                 <p class="text-xl text-gray-700">Los Palos Grandes</p>
+                <a href="https://maps.app.goo.gl/hyoxdbeG5HAvx4hj7" target="_blank" class="mt-4 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                    <svg class="-ml-0.5 mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                    Ver en el mapa
+                </a>
             </div>
         </section>
 
@@ -185,34 +137,26 @@
             </div>
         </section>
         
-        <section id="plan-semanal" class="mt-16">
-            <div class="text-center mb-8">
-                <h3 class="text-3xl font-bold">Un Vistazo a Nuestra Semana</h3>
-                <p class="mt-2 text-gray-600">Así se distribuye la diversión. Nuestro plan semanal equilibra actividades creativas, deportivas y especiales para mantener la emoción cada día.</p>
-            </div>
-            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
-                <div class="chart-container">
-                    <canvas id="weeklyPlanChart"></canvas>
-                </div>
-            </div>
-        </section>
-
         <section id="precio" class="mt-16">
-            <div class="bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
-                <h3 class="text-2xl font-semibold">¡DiverPrecio Especial!</h3>
-                <p class="text-6xl font-bold my-4">$65</p>
-                <p class="text-xl">por semana de pura diversión</p>
-                <p class="mt-4 opacity-90">Incluye todas las actividades del programa. ¡Una experiencia única para tus hijos a un precio increíble!</p>
-            </div>
+            <a href="https://wa.me/584120312648" target="_blank" class="block">
+                <div class="bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold">¡DiverPrecio Especial!</h3>
+                    <p class="text-6xl font-bold my-4">$65</p>
+                    <p class="text-xl">por semana de pura diversión</p>
+                    <p class="mt-4 opacity-90">Incluye todas las actividades del programa. ¡Una experiencia única para tus hijos a un precio increíble!</p>
+                </div>
+            </a>
         </section>
 
         <section id="promocion" class="mt-16">
-            <div class="bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
-                <h3 class="text-2xl font-semibold">¡Promo DiverAmigo!</h3>
-                <p class="text-6xl font-bold my-4">15%</p>
-                <p class="text-xl">de descuento al inscribir a un amigo</p>
-                <p class="mt-4 opacity-90">¡No te pierdas esta oportunidad de compartir la diversión y ahorrar!</p>
-            </div>
+            <a href="https://wa.me/584120312648" target="_blank" class="block">
+                <div class="bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
+                    <h3 class="text-2xl font-semibold">¡Promo DiverAmigo!</h3>
+                    <p class="text-6xl font-bold my-4">15%</p>
+                    <p class="text-xl">de descuento al inscribir a un amigo</p>
+                    <p class="mt-4 opacity-90">¡No te pierdas esta oportunidad de compartir la diversión y ahorrar!</p>
+                </div>
+            </a>
         </section>
 
         <section id="semanas-disponibles" class="mt-16 text-center">
@@ -287,81 +231,7 @@
                     target.classList.remove('hidden');
                 });
             });
-
-            const ctx = document.getElementById('weeklyPlanChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
-                    datasets: [{
-                        label: 'Actividades Generales',
-                        data: [2, 2, 1, 1, 2], // Adjusted for new activities
-                        backgroundColor: 'rgba(251, 191, 36, 0.6)',
-                        borderColor: 'rgba(251, 191, 36, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Actividad Especial',
-                        data: [0, 0, 1, 1, 0],
-                        backgroundColor: 'rgba(56, 189, 248, 0.6)',
-                        borderColor: 'rgba(56, 189, 248, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Actividades Variadas', // New category for experiments/special guests
-                        data: [1, 1, 1, 1, 1], // Assuming 1 varied activity per day
-                        backgroundColor: 'rgba(102, 204, 0, 0.6)', // Greenish color
-                        borderColor: 'rgba(102, 204, 0, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            stacked: true,
-                            ticks: {
-                                color: '#4B5563'
-                            },
-                             grid: {
-                                display: false
-                            }
-                        },
-                        y: {
-                            stacked: true,
-                            ticks: {
-                                color: '#4B5563',
-                                font: {
-                                    weight: 'bold'
-                                }
-                            },
-                             grid: {
-                                color: '#E5E7EB'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                             labels: {
-                                color: '#1F2937'
-                            }
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                            callbacks: {
-                                title: function(context) {
-                                    let title = context[0].label || '';
-                                    if (title === 'Miércoles') return title + ' - ¡Bailoterapia!';
-                                    if (title === 'Jueves') return title + ' - ¡Día de Piscina!';
-                                    return title;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
+            // The Chart.js code related to 'weeklyPlanChart' has been removed as per the request.
         });
     </script>
 </body>
