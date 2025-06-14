@@ -118,6 +118,19 @@
         <section class="text-center">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">¡Un verano de aventuras y risas inolvidables! ☀️</h2>
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Bienvenido a Diverchicos, el campamento de vacaciones donde la diversión nunca termina. Hemos diseñado un programa lleno de actividades emocionantes para que tus hijos disfruten, aprendan y creen recuerdos para toda la vida en un entorno seguro y estimulante.</p>
+            <div class="mt-8 text-xl font-semibold text-gray-700">
+                <p>Edad: Entre <span class="text-amber-600">4 y 9 años</span></p>
+                <p>Horario: <span class="text-amber-600">DE 8:30 AM A 3:00 PM</span></p>
+            </div>
+        </section>
+
+        <section id="ubicacion" class="mt-16 text-center">
+            <h3 class="text-3xl font-bold">Nuestra Ubicación</h3>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Nos encontramos en un lugar accesible y seguro para la comodidad de todas las familias.</p>
+            <div class="bg-white p-6 rounded-xl shadow-lg inline-block mt-6">
+                <p class="text-2xl font-bold text-blue-600">Colegio Belén</p>
+                <p class="text-xl text-gray-700">Los Palos Grandes</p>
+            </div>
         </section>
 
         <section id="actividades" class="mt-16">
@@ -125,13 +138,15 @@
                 <h3 class="text-3xl font-bold">Explora Nuestras Actividades</h3>
                 <p class="mt-2 text-gray-600">Haz clic en cada actividad para descubrir lo que hemos preparado. ¡Cada día es una nueva aventura!</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4 mb-8">
                 <button data-target="panel-piscina" class="activity-tab active text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🏊 Piscina</button>
                 <button data-target="panel-elastica" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🤸 Cama Elástica</button>
                 <button data-target="panel-manualidades" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎨 Manualidades</button>
                 <button data-target="panel-juegos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎲 Juegos</button>
                 <button data-target="panel-arte" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🖌️ Arte</button>
                 <button data-target="panel-bailo" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">💃 Bailoterapia</button>
+                <button data-target="panel-experimentos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🔬 Experimentos</button>
+                <button data-target="panel-invitados" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎤 Invitados Especiales</button>
             </div>
 
             <div id="activity-panels" class="bg-white p-8 rounded-xl shadow-lg min-h-[200px] flex items-center justify-center">
@@ -159,6 +174,14 @@
                     <h4 class="text-2xl font-bold text-pink-500">Miércoles de Bailoterapia</h4>
                     <p class="mt-2 text-gray-600">¡A moverse! Sesiones llenas de energía para divertirse al ritmo de la música y aprender nuevas coreografías.</p>
                 </div>
+                <div id="panel-experimentos" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-green-500">Experimentos Científicos</h4>
+                    <p class="mt-2 text-gray-600">Descubre el mundo de la ciencia con experimentos divertidos y educativos. ¡Aprender es emocionante!</p>
+                </div>
+                <div id="panel-invitados" class="activity-panel hidden text-center">
+                    <h4 class="text-2xl font-bold text-indigo-500">Invitados Especiales</h4>
+                    <p class="mt-2 text-gray-600">Prepárense para sorpresas. Contaremos con la visita de invitados especiales que harán cada semana aún más memorable.</p>
+                </div>
             </div>
         </section>
         
@@ -180,6 +203,30 @@
                 <p class="text-6xl font-bold my-4">$65</p>
                 <p class="text-xl">por semana de pura diversión</p>
                 <p class="mt-4 opacity-90">Incluye todas las actividades del programa. ¡Una experiencia única para tus hijos a un precio increíble!</p>
+            </div>
+        </section>
+
+        <section id="promocion" class="mt-16">
+            <div class="bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
+                <h3 class="text-2xl font-semibold">¡Promo DiverAmigo!</h3>
+                <p class="text-6xl font-bold my-4">15%</p>
+                <p class="text-xl">de descuento al inscribir a un amigo</p>
+                <p class="mt-4 opacity-90">¡No te pierdas esta oportunidad de compartir la diversión y ahorrar!</p>
+            </div>
+        </section>
+
+        <section id="semanas-disponibles" class="mt-16 text-center">
+            <h3 class="text-3xl font-bold">Semanas Disponibles</h3>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Planifica el verano de tus hijos con nuestras fechas programadas.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-xl font-semibold text-amber-600">Semana 1:</p>
+                    <p class="text-2xl font-bold mt-2">28 de julio al 01 de agosto</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <p class="text-xl font-semibold text-amber-600">Semana 2:</p>
+                    <p class="text-2xl font-bold mt-2">04 al 08 de agosto</p>
+                </div>
             </div>
         </section>
 
@@ -217,6 +264,8 @@
                     <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.42 0-7.8 3.38-7.8 7.8s3.38 7.8 7.8 7.8 7.8-3.38 7.8-7.8S16.735 2 12.315 2zM8.715 11.8c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9z" clip-rule="evenodd" /></svg>
                     Síguenos en Instagram @vacaciones_diverchicos
                 </a>
+                <p class="mt-4 text-xl font-semibold text-white">Contacto: Karina Guarepe</p>
+                <p class="text-lg text-white">📞 04120312648</p>
             </div>
             <p class="mt-8 text-sm text-gray-400">&copy; 2025 Diverchicos. Todos los derechos reservados.</p>
         </div>
@@ -246,7 +295,7 @@
                     labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
                     datasets: [{
                         label: 'Actividades Generales',
-                        data: [3, 3, 2, 2, 3],
+                        data: [2, 2, 1, 1, 2], // Adjusted for new activities
                         backgroundColor: 'rgba(251, 191, 36, 0.6)',
                         borderColor: 'rgba(251, 191, 36, 1)',
                         borderWidth: 1
@@ -255,6 +304,12 @@
                         data: [0, 0, 1, 1, 0],
                         backgroundColor: 'rgba(56, 189, 248, 0.6)',
                         borderColor: 'rgba(56, 189, 248, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Actividades Variadas', // New category for experiments/special guests
+                        data: [1, 1, 1, 1, 1], // Assuming 1 varied activity per day
+                        backgroundColor: 'rgba(102, 204, 0, 0.6)', // Greenish color
+                        borderColor: 'rgba(102, 204, 0, 1)',
                         borderWidth: 1
                     }]
                 },
