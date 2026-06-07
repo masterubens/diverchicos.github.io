@@ -3,81 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diverchicos | Campamento de Verano</title>
-    <!-- Favicon link updated to .png -->
+    <title>Diverchicos | Plan Vacacional 2026</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Chosen Palette: Calm Sunshine -->
-    <!-- Application Structure Plan: The SPA is designed as a single-page narrative scroll to guide parents logically through the information. It starts with a vibrant hero section with the brand's logo to capture attention. This is followed by an introduction and then an interactive 'Activities' section, which uses a tab system instead of a static list to encourage user engagement and make the schedule feel more dynamic. A 'Weekly Plan' chart visualizes the structure of the activities, offering a quick, digestible overview. The pricing is highlighted in a distinct card, followed by a clear, icon-based checklist for requirements. This structure was chosen to answer a parent's questions in a natural order (What is it? What will my child do? What does a week look like? How much is it? What do I need to prepare?), making the information easy to consume and act upon. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: Diverchicos Logo (Smiling Sun). Goal: Branding. Viz/Method: Recreated using HTML/CSS (nested divs with Tailwind for styling circles, rays, and facial features). Interaction: Static. Justification: Avoids image files per constraints, maintains the friendly, hand-drawn feel of the original. Library: None.
-        - Report Info: List of Activities. Goal: Organize & Inform. Viz/Method: Interactive tabs built with HTML/CSS/JS. Each activity is a clickable tab that reveals details. Interaction: Click to show/hide content. Justification: More engaging than a static list, allows parents to explore specific interests without being overwhelmed by text. Library: Vanilla JS.
-        - Report Info: Schedule (implicit). Goal: Compare & Inform. Viz/Method: Chart.js Horizontal Bar Chart ('Plan Semanal'). The chart visualizes the balance of general vs. special activities throughout the week. Interaction: Hover tooltips provide details. Justification: Translates the text-based schedule into a simple, quantitative visual comparison, making the weekly structure immediately understandable. Library: Chart.js.
-        - Report Info: What to Bring list. Goal: Inform. Viz/Method: Styled HTML list with Unicode characters (emojis) as icons. Interaction: Static. Justification: Icons make the list scannable and more visually appealing than plain text. Library: None.
-        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
-        /* Removed .sun-logo, .sun-ray, .sun-face, .eye, .smile as image is now used */
         .activity-tab {
             transition: all 0.3s ease;
         }
         .activity-tab.active {
-            background-color: #F9A825; /* amber-500 */
+            background-color: #f97316; /* orange-500 */
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 350px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 400px;
-            }
-        }
-
         /* Carousel specific styles */
         .carousel-container {
             position: relative;
-            max-width: 600px; /* Adjust as needed */
+            max-width: 600px;
             margin: 0 auto;
             overflow: hidden;
-            border-radius: 0.75rem; /* rounded-lg */
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
-
         .carousel-slide {
-            display: none; /* Hidden by default */
+            display: none;
             width: 100%;
-            display: flex; /* Use flex to center content vertically if there's remaining space */
-            align-items: center; /* Center content vertically */
-            justify-content: center; /* Center content horizontally */
-            /* Removed fixed height here, so it adapts to content */
-            background-color: #f0f0f0; /* Optional: A background color for letterboxing */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f0f0;
         }
-
         .carousel-slide img,
         .carousel-slide video {
             width: 100%;
-            height: auto; /* Allow height to adapt to aspect ratio */
-            /* Removed max-height, min-height, and object-fit */
+            height: auto;
             border-radius: 0.75rem;
         }
-
         .carousel-button {
             position: absolute;
             top: 50%;
@@ -91,19 +60,15 @@
             opacity: 0.8;
             transition: opacity 0.3s ease;
         }
-
         .carousel-button:hover {
             opacity: 1;
         }
-
         .carousel-button.prev {
             left: 1rem;
         }
-
         .carousel-button.next {
             right: 1rem;
         }
-
         .carousel-dots {
             position: absolute;
             bottom: 1rem;
@@ -113,7 +78,6 @@
             gap: 0.5rem;
             z-index: 10;
         }
-
         .dot {
             width: 10px;
             height: 10px;
@@ -122,42 +86,47 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .dot.active {
             background-color: white;
         }
     </style>
 </head>
-<body class="bg-amber-50 text-gray-800">
+<body class="bg-sky-100 text-gray-800">
 
     <header class="bg-white shadow-md">
         <nav class="container mx-auto px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-y-2 sm:justify-between">
             <div class="flex items-center space-x-2 flex-shrink-0 self-start sm:self-auto">
-                <!-- Logo Image Added Here -->
                 <img src="Logo Diverchicos.jpg" alt="Logo Diverchicos" class="h-24 w-auto rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFD700/000000?text=Logo';" loading="lazy">
-                <h1 class="text-2xl sm:text-3xl font-bold text-red-600">Diverchicos</h1>
+                <h1 class="text-2xl sm:text-3xl font-bold text-blue-900">Diverchicos</h1>
             </div>
-            <a href="#precio" class="bg-red-600 text-white font-bold py-2 px-4 rounded-full hover:bg-red-700 transition duration-300 flex-shrink-0 mx-auto sm:mx-0">¡Inscríbete!</a>
+            <a href="#precio" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md">¡Inscríbete Hoy!</a>
         </nav>
     </header>
 
     <main class="container mx-auto px-6 py-12">
         <section class="text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">¡Un verano de aventuras y risas inolvidables! ☀️</h2>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Bienvenido a Diverchicos, el campamento de vacaciones donde la diversión nunca termina. Hemos diseñado un programa lleno de actividades emocionantes para que tus hijos disfruten, aprendan y creen recuerdos para toda la vida en un entorno seguro y estimulante.</p>
-            <div class="mt-8 text-xl font-semibold text-gray-700">
-                <p>Edad: Entre <span class="text-amber-600">4 y 9 años</span></p>
-                <p>Horario: <span class="text-amber-600">DE 8:30 AM A 3:00 PM</span></p>
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 leading-tight">¿Trabajas todo el día?</h2>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-orange-500 mt-2 mb-6" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">PLAN VACACIONAL 2026</h1>
+            
+            <p class="mt-4 text-xl text-gray-700 max-w-3xl mx-auto font-semibold">¡Diverchicos te resuelve el verano con 8 años de experiencia respaldándonos!</p>
+            
+            <div class="mt-8 flex flex-col md:flex-row justify-center items-center gap-6 text-lg font-semibold text-blue-900">
+                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 w-full md:w-auto">
+                    <p class="flex items-center justify-center gap-2"><i class="far fa-clock text-orange-500 text-2xl"></i> 8:00 AM a 4:00 PM</p>
+                    <p class="text-sm text-gray-500 mt-1">(Tú envías su comida, ¡nosotros la servimos! 🥪💼)</p>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-red-500 w-full md:w-auto">
+                    <p class="flex items-center justify-center gap-2"><i class="fas fa-language text-blue-600 text-2xl"></i> Inglés Inmersivo Diario 🇺🇸</p>
+                    <p class="text-sm text-gray-500 mt-1">(Enseñanza divertida y práctica 📚)</p>
+                </div>
             </div>
         </section>
 
         <section id="ubicacion" class="mt-16 text-center">
-            <h3 class="text-3xl font-bold">Nuestra Ubicación</h3>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Nos encontramos en un lugar accesible y seguro para la comodidad de todas las familias.</p>
-            <div class="bg-white p-6 rounded-xl shadow-lg mt-6 max-w-3xl mx-auto">
-                <p class="text-2xl font-bold text-blue-600">Colegio Belén</p>
+            <h3 class="text-3xl font-bold text-blue-900">Ubicación Segura y Céntrica</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg mt-6 max-w-3xl mx-auto border-l-8 border-orange-500">
+                <p class="text-2xl font-bold text-blue-900"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Colegio Belén</p>
                 <p class="text-xl text-gray-700 mb-4">Los Palos Grandes</p>
-                <!-- Google Map Embedded Here -->
                 <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
                     <iframe
                         src="https://maps.google.com/maps?q=Colegio%20Bel%C3%A9n%20Los%20Palos%20Grandes&output=embed"
@@ -173,99 +142,121 @@
             </div>
         </section>
 
-        <section id="actividades" class="mt-16">
+        <section id="semanas-tematicas" class="mt-20">
             <div class="text-center mb-12">
-                <h3 class="text-3xl font-bold">Explora Nuestras Actividades</h3>
-                <p class="mt-2 text-gray-600">Haz clic en cada actividad para descubrir lo que hemos preparado. ¡Cada día es una nueva aventura!</p>
+                <h3 class="text-4xl font-bold text-blue-900">Cronograma de 3 Semanas Temáticas</h3>
+                <p class="mt-2 text-lg text-gray-700">¡Cada semana es una aventura distinta con un show de cierre espectacular!</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-8 gap-4 mb-8">
-                <button data-target="panel-piscina" class="activity-tab active text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🏊 Piscina</button>
-                <button data-target="panel-elastica" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🤸 Cama Elástica</button>
-                <button data-target="panel-manualidades" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎨 Manualidades</button>
-                <button data-target="panel-juegos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎲 Juegos</button>
-                <button data-target="panel-arte" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🖌️ Arte</button>
-                <button data-target="panel-bailo" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">💃 Bailoterapia</button>
-                <button data-target="panel-experimentos" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🔬 Experimentos</button>
-                <button data-target="panel-invitados" class="activity-tab text-lg font-semibold p-4 rounded-lg shadow-md bg-white">🎤 Invitados Especiales</button>
-            </div>
-
-            <div id="activity-panels" class="bg-white p-8 rounded-xl shadow-lg min-h-[200px] flex items-center justify-center">
-                <div id="panel-piscina" class="activity-panel text-center">
-                    <h4 class="text-2xl font-bold text-sky-500">Jueves de Piscina</h4>
-                    <p class="mt-2 text-gray-600">¡El día más refrescante de la semana! Nos zambullimos en la diversión acuática con juegos y chapuzones para todos. ¡La seguridad es nuestra prioridad!</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-900 text-white text-center py-4">
+                        <h4 class="text-xl font-bold">AGO 3 - 7</h4>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="text-5xl mb-4">⚽🏅</div>
+                        <h5 class="text-2xl font-bold text-gray-800 mb-2">Mundial & Olimpiadas</h5>
+                        <ul class="text-gray-600 space-y-2 mb-4 text-left px-4">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Circuitos Deportivos</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Competencias Sanas</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega de Medallas</li>
+                        </ul>
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200">
+                            <p class="font-bold text-blue-900">Cierre: ¡Cama Elástica! 🤸</p>
+                        </div>
+                    </div>
                 </div>
-                <div id="panel-elastica" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-lime-500">Cama Elástica</h4>
-                    <p class="mt-2 text-gray-600">Saltos, piruetas y risas garantizadas. Disponible durante dos semanas completas para que todos puedan disfrutar y liberar energía.</p>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-900 text-white text-center py-4">
+                        <h4 class="text-xl font-bold">AGO 10 - 14</h4>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="text-5xl mb-4">🔬🧪</div>
+                        <h5 class="text-2xl font-bold text-gray-800 mb-2">Laboratorio de Genios</h5>
+                        <ul class="text-gray-600 space-y-2 mb-4 text-left px-4">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Creación de Slime</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Volcanes en Erupción</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Lógica y Experimentos</li>
+                        </ul>
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200">
+                            <p class="font-bold text-blue-900">Cierre: Fiesta de Show 🎉</p>
+                        </div>
+                    </div>
                 </div>
-                <div id="panel-manualidades" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-purple-500">Manualidades Creativas</h4>
-                    <p class="mt-2 text-gray-600">Despertamos el artista que llevan dentro. Usamos diferentes materiales para crear obras maestras que podrán llevarse a casa.</p>
-                </div>
-                <div id="panel-juegos" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-orange-500">Juegos Recreativos</h4>
-                    <p class="mt-2 text-gray-600">¡Cada semana una aventura diferente! Organizamos juegos en equipo, competencias amistosas y actividades que fomentan la colaboración.</p>
-                </div>
-                <div id="panel-arte" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-rose-500">Actividades de Arte</h4>
-                    <p class="mt-2 text-gray-600">Exploramos la imaginación a través del color y la forma. Desde pintura hasta modelado, damos rienda suelta a la creatividad.</p>
-                </div>
-                <div id="panel-bailo" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-pink-500">Miércoles de Bailoterapia</h4>
-                    <p class="mt-2 text-gray-600">¡A moverse! Sesiones llenas de energía para divertirse al ritmo de la música y aprender nuevas coreografías.</p>
-                </div>
-                <div id="panel-experimentos" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-green-500">Experimentos Científicos</h4>
-                    <p class="mt-2 text-gray-600">Descubre el mundo de la ciencia con experimentos divertidos y educativos. ¡Aprender es emocionante!</p>
-                </div>
-                <div id="panel-invitados" class="activity-panel hidden text-center">
-                    <h4 class="text-2xl font-bold text-indigo-500">Invitados Especiales</h4>
-                    <p class="mt-2 text-gray-600">Prepárense para sorpresas. Contaremos con la visita de invitados especiales que harán cada semana aún más memorable.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="precio" class="mt-16">
-            <a href="https://wa.me/584120312648" target="_blank" class="block">
-                <div class="bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-semibold">¡DiverPrecio Especial!</h3>
-                    <p class="text-6xl font-bold my-4">$65</p>
-                    <p class="text-xl">por semana de pura diversión</p>
-                    <p class="mt-4 opacity-90">Incluye todas las actividades del programa. ¡Una experiencia única para tus hijos a un precio increíble!</p>
-                </div>
-            </a>
-        </section>
-
-        <section id="promocion" class="mt-16">
-            <a href="https://wa.me/584120312648" target="_blank" class="block">
-                <div class="bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-2xl shadow-2xl max-w-2xl mx-auto p-10 text-center transform hover:scale-105 transition duration-300">
-                    <h3 class="text-2xl font-semibold">¡Promo DiverAmigo!</h3>
-                    <p class="text-6xl font-bold my-4">15%</p>
-                    <p class="text-xl">de descuento al inscribir a un amigo</p>
-                    <p class="mt-4 opacity-90">¡No te pierdas esta oportunidad de compartir la diversión y ahorrar!</p>
-                </div>
-            </a>
-        </section>
-
-        <section id="semanas-disponibles" class="mt-16 text-center">
-            <h3 class="text-3xl font-bold">Semanas Disponibles</h3>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Planifica el verano de tus hijos con nuestras fechas programadas.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-xl font-semibold text-amber-600">Semana 1:</p>
-                    <p class="text-2xl font-bold mt-2">28 de julio al 01 de agosto</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                    <p class="text-xl font-semibold text-amber-600">Semana 2:</p>
-                    <p class="text-2xl font-bold mt-2">04 al 08 de agosto</p>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-900 text-white text-center py-4">
+                        <h4 class="text-xl font-bold">AGO 17 - 21</h4>
+                    </div>
+                    <div class="p-6 text-center">
+                        <div class="text-5xl mb-4">🕵️‍♂️🔍</div>
+                        <h5 class="text-2xl font-bold text-gray-800 mb-2">Agencia de Detectives</h5>
+                        <ul class="text-gray-600 space-y-2 mb-4 text-left px-4">
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Mensajes Ocultos</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Búsqueda del Tesoro</li>
+                            <li><i class="fas fa-check text-green-500 mr-2"></i> Pistas y Acertijos</li>
+                        </ul>
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200">
+                            <p class="font-bold text-blue-900">Cierre: Show de Magia 🎩</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="galeria" class="mt-16 text-center">
-            <h3 class="text-3xl font-bold">Nuestra Galería de Diver-Momentos</h3>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Explora la diversión y las aventuras de nuestros campamentos anteriores. ¡Prepárate para los mejores recuerdos!</p>
-            <div class="carousel-container mt-8">
+        <section id="precio" class="mt-20">
+            <div class="text-center mb-10">
+                <h3 class="text-4xl font-bold text-blue-900">Información y Detalle de Pagos</h3>
+                <p class="mt-2 text-lg text-gray-700">Elige el plan que mejor se adapte a tu familia.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-300 border-4 border-yellow-300 relative">
+                    <div class="absolute -top-4 right-4 bg-yellow-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                        ¡Aprovecha!
+                    </div>
+                    <h3 class="text-2xl font-semibold">PREVENTA JUNIO</h3>
+                    <p class="text-5xl font-bold my-4">$50</p>
+                    <p class="text-lg font-medium">por semana</p>
+                    <p class="mt-2 text-sm opacity-90">*Válido solo hasta el 30 de Junio.</p>
+                </div>
+                
+                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold text-gray-500">COSTO REGULAR</h3>
+                    <p class="text-4xl font-bold my-4 text-blue-900">$55</p>
+                    <p class="text-lg text-gray-600">por semana</p>
+                </div>
+
+                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center">
+                    <h3 class="text-xl font-semibold text-gray-500">DÍA ÚNICO DE DISFRUTE</h3>
+                    <p class="text-4xl font-bold my-4 text-orange-500">$15</p>
+                    <p class="text-sm text-gray-500">(Sujeto a disponibilidad de cupo)</p>
+                </div>
+            </div>
+
+            <div class="mt-8 max-w-3xl mx-auto bg-blue-50 p-6 rounded-xl text-center border border-blue-100">
+                <p class="text-blue-900 font-semibold"><i class="fas fa-check-circle text-green-500 mr-2"></i> Tu inscripción incluye: Coordinadores Especializados, Materiales y Guías, Inglés Inmersivo diario y Juegos de Lógica/Deportes.</p>
+            </div>
+        </section>
+
+        <section id="metodos-de-pago" class="mt-20 text-center">
+            <h3 class="text-3xl font-bold text-blue-900">Métodos de Pago Aceptados</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-yellow-400">
+                    <h4 class="font-bold text-2xl mb-2 text-blue-900"><i class="fa-brands fa-btc text-yellow-500 mr-2"></i>Binance Pay (USDT)</h4>
+                    <p class="text-lg font-semibold text-gray-600 mb-1">Método Principal</p>
+                    <p class="text-sm text-orange-600 font-bold bg-orange-100 inline-block px-3 py-1 rounded-full mt-2">¡Consulta por precio especial pagando por Binance!</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500">
+                    <h4 class="font-bold text-2xl mb-2 text-blue-900"><i class="fas fa-mobile-alt text-blue-500 mr-2"></i>Pago Móvil</h4>
+                    <p class="text-lg text-gray-700">Calculamos a <span class="font-bold">Tasa BCV del día</span>.</p>
+                    <p class="text-sm text-gray-500 mt-2 italic">* Cero costos ocultos.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="mt-20 text-center">
+            <h3 class="text-3xl font-bold text-blue-900">Nuestra Galería de Diver-Momentos</h3>
+            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Explora la diversión y las aventuras de nuestros campamentos anteriores.</p>
+            <div class="carousel-container mt-8 border-4 border-white shadow-xl">
                 <div class="carousel-slide">
                     <img src="Diverchicos 1.jpeg" alt="Niños jugando en Diverchicos 1" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+1';">
                 </div>
@@ -295,84 +286,51 @@
                     <img src="Diverchicos 6.jpeg" alt="Un momento más en Diverchicos 6" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+6';">
                 </div>
 
-                <!-- Carousel Navigation Buttons -->
-                <button class="carousel-button prev">&#10094;</button>
-                <button class="carousel-button next">&#10095;</button>
-
-                <!-- Carousel Dots Indicators - Dynamic generation in JS is better for many slides -->
-                <div class="carousel-dots">
-                    <!-- Dots will be generated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <section id="metodos-de-pago" class="mt-16 text-center">
-            <h3 class="text-3xl font-bold">Métodos de Pago</h3>
-            <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Facilitamos el proceso de inscripción con diversas opciones de pago.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-3xl mx-auto">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-xl mb-2 text-blue-700"><i class="fas fa-mobile-alt mr-2"></i>Pago Móvil</h4>
-                    <p class="text-lg">Cédula: <span class="font-semibold">17704919</span></p>
-                    <p class="text-lg">Teléfono: <span class="font-semibold">04140312648</span></p>
-                    <p class="text-lg">Banco: <span class="font-semibold">Provincial</span></p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h4 class="font-bold text-xl mb-2 text-yellow-600"><i class="fas fa-wallet mr-2"></i>Binance Pay</h4>
-                    <p class="text-lg">ID de Pago: <span class="font-semibold">masterubens@gmail.com</span></p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md md:col-span-2 md:w-1/2 mx-auto">
-                    <h4 class="font-bold text-xl mb-2 text-green-700"><i class="fas fa-money-bill-wave mr-2"></i>Efectivo</h4>
-                    <p class="text-lg">Moneda: <span class="font-semibold">Dólares ($)</span></p>
-                    <p class="text-lg">Detalles: <span class="font-semibold">Pago directo en sede</span></p>
-                </div>
+                <button class="carousel-button prev">❮</button>
+                <button class="carousel-button next">❯</button>
+                <div class="carousel-dots"></div>
             </div>
         </section>
 
     </main>
 
-    <footer class="bg-gray-800 text-white mt-16">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p class="text-2xl font-bold">¿Listo para la aventura?</p>
-            <p class="mt-2 max-w-2xl mx-auto">¡No esperes más! Asegura el lugar de tu hijo en Diverchicos y regálale un verano que nunca olvidará.</p>
-            <div class="mt-6">
-                <a href="https://www.instagram.com/vacaciones_diverchicos" target="_blank" class="bg-white text-gray-800 font-bold py-3 px-6 rounded-full hover:bg-amber-400 hover:text-white transition duration-300 inline-flex items-center">
-                    <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-4.42 0-7.8 3.38-7.8 7.8s3.38 7.8 7.8 7.8 7.8-3.38 7.8-7.8S16.735 2 12.315 2zM8.715 11.8c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9zm4.5 0c-.552 0-.9-.448-.9-.9s.348-.9.9-.9.9.448.9.9-.348.9-.9.9z" clip-rule="evenodd" /></svg>
-                    Síguenos en Instagram @vacaciones_diverchicos
-                </a>
-                <p class="mt-4 text-xl font-semibold text-white">Contacto: Karina Guarepe</p>
-                <p class="text-lg text-white">📞 04120312648</p>
+    <footer class="bg-blue-900 text-white mt-20 border-t-8 border-orange-500">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <h2 class="text-3xl font-bold mb-6">¿Listo para apartar tu cupo?</h2>
+            
+            <a href="https://wa.me/584120312648" target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-lg text-xl mb-8 transform hover:-translate-y-1">
+                👉 Escribe "CONFIRMAR" al WhatsApp
+            </a>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto border-t border-blue-800 pt-8">
+                <div>
+                    <p class="text-gray-400 text-sm uppercase tracking-wide mb-1">Contacto Directo</p>
+                    <p class="text-xl font-semibold">Prof. Karina Guarepe</p>
+                    <p class="text-lg text-orange-400 font-bold"><i class="fab fa-whatsapp mr-2"></i>0412-0312648</p>
+                </div>
+                <div>
+                    <p class="text-gray-400 text-sm uppercase tracking-wide mb-1">Redes Sociales</p>
+                    <a href="https://www.instagram.com/vacaciones_diverchicos" target="_blank" class="text-lg hover:text-orange-400 transition flex justify-center items-center gap-2">
+                        <i class="fab fa-instagram text-2xl"></i> @vacaciones_diverchicos
+                    </a>
+                </div>
             </div>
-            <p class="mt-8 text-sm text-gray-400">&copy; 2025 Diverchicos. Todos los derechos reservados.</p>
+            
+            <p class="mt-12 text-sm text-gray-500">© 2026 Diverchicos. Todos los derechos reservados. Respaldados por 8 años de experiencia.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.activity-tab');
-            const panels = document.querySelectorAll('.activity-panel');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    
-                    const target = document.getElementById(tab.dataset.target);
-                    
-                    panels.forEach(panel => panel.classList.add('hidden'));
-                    target.classList.remove('hidden');
-                });
-            });
-
-            // Carousel functionality
+            // Script del Carrusel mantenido exactamente igual
             let currentSlide = 0;
             const slides = document.querySelectorAll('.carousel-slide');
             const dotsContainer = document.querySelector('.carousel-dots');
             const prevButton = document.querySelector('.carousel-button.prev');
             const nextButton = document.querySelector('.carousel-button.next');
 
-            // Function to generate dots based on the number of slides
             function generateDots() {
-                dotsContainer.innerHTML = ''; // Clear existing dots
+                dotsContainer.innerHTML = ''; 
                 slides.forEach((_, i) => {
                     const dot = document.createElement('span');
                     dot.classList.add('dot');
@@ -386,17 +344,16 @@
             }
 
             function showSlide(index) {
-                // Pause all videos before changing slide
                 slides.forEach(slide => {
                     const video = slide.querySelector('video');
                     if (video) {
                         video.pause();
-                        video.currentTime = 0; // Reset video to start
+                        video.currentTime = 0; 
                     }
                 });
 
                 slides.forEach((slide, i) => {
-                    slide.style.display = (i === index) ? 'flex' : 'none'; // Use flex for centering
+                    slide.style.display = (i === index) ? 'flex' : 'none'; 
                 });
 
                 const dots = document.querySelectorAll('.dot');
@@ -404,7 +361,6 @@
                     dot.classList.toggle('active', i === index);
                 });
 
-                // Play video if the current slide contains one
                 const currentVideo = slides[index].querySelector('video');
                 if (currentVideo) {
                     currentVideo.play();
@@ -421,12 +377,10 @@
                 showSlide(currentSlide);
             }
 
-            // Event listeners for buttons
             prevButton.addEventListener('click', prevSlide);
             nextButton.addEventListener('click', nextSlide); 
 
-            // Initial setup
-            generateDots(); // Generate dots on load
+            generateDots(); 
             if (slides.length > 0) {
                 showSlide(currentSlide);
             }
