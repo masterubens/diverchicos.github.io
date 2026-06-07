@@ -6,7 +6,6 @@
     <title>Diverchicos | Plan Vacacional 2026</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,16 +14,7 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .activity-tab {
-            transition: all 0.3s ease;
-        }
-        .activity-tab.active {
-            background-color: #f97316; /* orange-500 */
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
-        /* Carousel specific styles */
+        /* Carrusel CSS */
         .carousel-container {
             position: relative;
             max-width: 600px;
@@ -99,7 +89,7 @@
                 <img src="Logo Diverchicos.jpg" alt="Logo Diverchicos" class="h-24 w-auto rounded-full" onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFD700/000000?text=Logo';" loading="lazy">
                 <h1 class="text-2xl sm:text-3xl font-bold text-blue-900">Diverchicos</h1>
             </div>
-            <a href="#precio" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md">¡Inscríbete Hoy!</a>
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md">¡Inscríbete Hoy!</a>
         </nav>
     </header>
 
@@ -209,14 +199,26 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-300 border-4 border-yellow-300 relative">
+                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-300 border-4 border-yellow-300 relative flex flex-col justify-between">
                     <div class="absolute -top-4 right-4 bg-yellow-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
                         ¡Aprovecha!
                     </div>
                     <h3 class="text-2xl font-semibold">PREVENTA JUNIO</h3>
                     <p class="text-5xl font-bold my-4">$50</p>
                     <p class="text-lg font-medium">por semana</p>
-                    <p class="mt-2 text-sm opacity-90">*Válido solo hasta el 30 de Junio.</p>
+                    
+                    <div class="mt-5 bg-black bg-opacity-25 rounded-xl p-3 border border-red-400 shadow-inner">
+                        <p class="text-xs uppercase tracking-wider mb-2 font-bold text-yellow-200">La preventa finaliza en:</p>
+                        <div id="countdown" class="flex justify-center gap-3 text-xl font-mono font-bold">
+                            <div class="flex flex-col"><span id="cd-days">00</span><span class="text-[10px] uppercase font-sans font-normal text-gray-200">Días</span></div>
+                            <span class="text-red-300">:</span>
+                            <div class="flex flex-col"><span id="cd-hours">00</span><span class="text-[10px] uppercase font-sans font-normal text-gray-200">Hrs</span></div>
+                            <span class="text-red-300">:</span>
+                            <div class="flex flex-col"><span id="cd-mins">00</span><span class="text-[10px] uppercase font-sans font-normal text-gray-200">Min</span></div>
+                            <span class="text-red-300">:</span>
+                            <div class="flex flex-col"><span id="cd-secs">00</span><span class="text-[10px] uppercase font-sans font-normal text-gray-200">Seg</span></div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center">
@@ -232,7 +234,7 @@
                 </div>
             </div>
 
-            <div class="mt-8 max-w-3xl mx-auto bg-blue-50 p-6 rounded-xl text-center border border-blue-100">
+            <div class="mt-8 max-w-3xl mx-auto bg-blue-50 p-6 rounded-xl text-center border border-blue-100 shadow-sm">
                 <p class="text-blue-900 font-semibold"><i class="fas fa-check-circle text-green-500 mr-2"></i> Tu inscripción incluye: Coordinadores Especializados, Materiales y Guías, Inglés Inmersivo diario y Juegos de Lógica/Deportes.</p>
             </div>
         </section>
@@ -242,13 +244,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl mx-auto">
                 <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-yellow-400">
                     <h4 class="font-bold text-2xl mb-2 text-blue-900"><i class="fa-brands fa-btc text-yellow-500 mr-2"></i>Binance Pay (USDT)</h4>
-                    <p class="text-lg font-semibold text-gray-600 mb-1">Método Principal</p>
-                    <p class="text-sm text-orange-600 font-bold bg-orange-100 inline-block px-3 py-1 rounded-full mt-2">¡Consulta por precio especial pagando por Binance!</p>
+                    <p class="text-lg text-gray-700">ID de Pago: <span class="font-semibold">masterubens@gmail.com</span></p>
+                    <p class="text-sm text-orange-600 font-bold bg-orange-100 inline-block px-3 py-1 rounded-full mt-3">¡Consulta por precio especial pagando por Binance!</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500">
-                    <h4 class="font-bold text-2xl mb-2 text-blue-900"><i class="fas fa-mobile-alt text-blue-500 mr-2"></i>Pago Móvil</h4>
-                    <p class="text-lg text-gray-700">Calculamos a <span class="font-bold">Tasa BCV del día</span>.</p>
-                    <p class="text-sm text-gray-500 mt-2 italic">* Cero costos ocultos.</p>
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 text-left md:text-center">
+                    <h4 class="font-bold text-2xl mb-2 text-blue-900 md:text-center"><i class="fas fa-mobile-alt text-blue-500 mr-2"></i>Pago Móvil</h4>
+                    <ul class="text-lg text-gray-700 inline-block text-left mb-2">
+                        <li>Cédula: <span class="font-semibold">17704919</span></li>
+                        <li>Teléfono: <span class="font-semibold">04140312648</span></li>
+                        <li>Banco: <span class="font-semibold">Provincial</span></li>
+                    </ul>
+                    <p class="text-lg text-gray-700 mt-2 block">Calculamos a <span class="font-bold">Tasa BCV del día</span>.</p>
+                    <p class="text-sm text-gray-500 mt-1 italic block">* Cero costos ocultos.</p>
                 </div>
             </div>
         </section>
@@ -261,7 +268,7 @@
                     <img src="Diverchicos 1.jpeg" alt="Niños jugando en Diverchicos 1" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+1';">
                 </div>
                 <div class="carousel-slide">
-                    <video controls autoplay loop muted playsinline src="Diverchicos Video 1.mp4" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Video+no+disponible';">
+                    <video controls loop muted playsinline src="Diverchicos Video 1.mp4" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Video+no+disponible';">
                         Tu navegador no soporta el tag de video.
                     </video>
                 </div>
@@ -269,7 +276,7 @@
                     <img src="Diverchicos 2.jpeg" alt="Actividad de manualidades en Diverchicos 2" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+2';">
                 </div>
                 <div class="carousel-slide">
-                    <video controls autoplay loop muted playsinline src="Diverchicos Video 2.mp4" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Video+no+disponible';">
+                    <video controls loop muted playsinline src="Diverchicos Video 2.mp4" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Video+no+disponible';">
                         Tu navegador no soporta el tag de video.
                     </video>
                 </div>
@@ -298,7 +305,7 @@
         <div class="container mx-auto px-6 py-10 text-center">
             <h2 class="text-3xl font-bold mb-6">¿Listo para apartar tu cupo?</h2>
             
-            <a href="https://wa.me/584120312648" target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-lg text-xl mb-8 transform hover:-translate-y-1">
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-lg text-xl mb-8 transform hover:-translate-y-1">
                 👉 Escribe "CONFIRMAR" al WhatsApp
             </a>
 
@@ -322,7 +329,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Script del Carrusel mantenido exactamente igual
+            
+            // --- SCRIPT DEL CARRUSEL ---
             let currentSlide = 0;
             const slides = document.querySelectorAll('.carousel-slide');
             const dotsContainer = document.querySelector('.carousel-dots');
@@ -384,6 +392,32 @@
             if (slides.length > 0) {
                 showSlide(currentSlide);
             }
+
+            // --- SCRIPT DEL CONTADOR REGRESIVO DE PREVENTA ---
+            // Fecha límite: 30 de Junio de 2026 a las 23:59:59
+            const countDownDate = new Date("Jun 30, 2026 23:59:59").getTime();
+
+            const timerInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countDownDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById("countdown").innerHTML = "<span class='text-yellow-300 text-sm tracking-wide uppercase'>¡Preventa Finalizada!</span>";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("cd-days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("cd-hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("cd-mins").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("cd-secs").innerText = seconds.toString().padStart(2, '0');
+            }, 1000);
+
         });
     </script>
 </body>
