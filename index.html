@@ -11,14 +11,19 @@
     <meta property="og:url" content="https://diverchicos.com/">
     <meta property="og:type" content="website">
     <link rel="icon" href="favicon.png" type="image/png">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Evita scroll horizontal con las animaciones */
         }
         
         /* Stack tipográfico nativo para Emojis sin hacks de color */
@@ -97,46 +102,46 @@
 </head>
 <body class="bg-sky-100 text-gray-800">
 
-    <header class="bg-blue-900 text-white shadow-md border-b-8 border-orange-500">
+    <header class="bg-blue-900 text-white shadow-md border-b-8 border-orange-500 sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-y-2 sm:justify-between">
-            <div class="flex items-center space-x-3 flex-shrink-0 self-start sm:self-auto">
-                <div class="h-24 w-24 bg-white rounded-full border-2 border-white flex items-center justify-center flex-shrink-0 shadow-md">
+            <div class="flex items-center space-x-3 flex-shrink-0 self-start sm:self-auto" data-aos="fade-right">
+                <div class="h-20 w-20 sm:h-24 sm:w-24 bg-white rounded-full border-2 border-white flex items-center justify-center flex-shrink-0 shadow-md">
                     <img src="Logo Diverchicos2.jpg" alt="Logo Diverchicos" class="h-3/4 w-3/4 object-contain" onerror="this.onerror=null;this.src='https://placehold.co/100x100/FFD700/000000?text=Logo';" loading="lazy">
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-white">Diverchicos</h1>
             </div>
-            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md">¡Inscríbete Hoy!</a>
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md animate-bounce" data-aos="fade-left">¡Inscríbete Hoy!</a>
         </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-12">
+    <main class="container mx-auto px-6 py-12 overflow-hidden">
         <section class="text-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-orange-500 mb-2 mt-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">PLAN VACACIONAL 2026</h1>
-            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 leading-tight mb-6">¿Trabajas todo el día?</h2>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-orange-500 mb-2 mt-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);" data-aos="fade-down">PLAN VACACIONAL 2026</h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-900 leading-tight mb-6" data-aos="fade-down" data-aos-delay="100">¿Trabajas todo el día?</h2>
             
-            <p class="mt-4 text-xl text-gray-700 max-w-3xl mx-auto font-semibold">¡Diverchicos te resuelve las vacaciones con 8 años de experiencia respaldándonos!</p>
+            <p class="mt-4 text-xl text-gray-700 max-w-3xl mx-auto font-semibold" data-aos="fade-up" data-aos-delay="200">¡Diverchicos te resuelve las vacaciones con 8 años de experiencia respaldándonos!</p>
             
-            <div class="mt-5">
+            <div class="mt-5" data-aos="zoom-in" data-aos-delay="300">
                 <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-900 font-bold px-5 py-2 rounded-full border-2 border-blue-200 shadow-sm text-lg">
                     <i class="fas fa-child text-orange-500"></i> Para niños y niñas de 4 a 10 años
                 </span>
             </div>
             
             <div class="mt-8 flex flex-col md:flex-row justify-center items-stretch gap-6 text-lg font-semibold text-blue-900 max-w-4xl mx-auto">
-                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center">
+                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="400">
                     <p class="flex items-center justify-center gap-2"><i class="far fa-clock text-orange-500 text-2xl"></i> 8:00 AM a 4:00 PM</p>
                     <p class="text-sm text-gray-500 mt-1 text-center">(Tú envías su comida, ¡nosotros la servimos! 🥪💼)</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center">
+                <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="500">
                     <p class="flex items-center justify-center gap-2"><i class="fas fa-language text-blue-600 text-2xl"></i> Inglés Inmersivo Diario</p>
                     <p class="text-sm text-gray-500 mt-1 text-center">(Enseñanza divertida y práctica 📚)</p>
                 </div>
             </div>
         </section>
 
-        <section id="ubicacion" class="mt-16 text-center">
-            <h3 class="text-3xl font-bold text-blue-900">Ubicación Segura y Céntrica</h3>
-            <div class="bg-white p-6 rounded-xl shadow-lg mt-6 max-w-3xl mx-auto border-l-8 border-blue-900">
+        <section id="ubicacion" class="mt-20 text-center">
+            <h3 class="text-3xl font-bold text-blue-900" data-aos="fade-up">Ubicación Segura y Céntrica</h3>
+            <div class="bg-white p-6 rounded-xl shadow-lg mt-6 max-w-3xl mx-auto border-l-8 border-blue-900 transform hover:shadow-2xl transition duration-300" data-aos="zoom-in" data-aos-delay="150">
                 <p class="text-2xl font-bold text-blue-900"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i>Colegio Belén</p>
                 <p class="text-xl text-gray-700 mb-4">Los Palos Grandes</p>
                 <div class="relative overflow-hidden rounded-lg shadow-md" style="padding-top: 56.25%;">
@@ -154,21 +159,20 @@
             </div>
         </section>
 
-        <section id="semanas-tematicas" class="mt-20">
-            <div class="text-center mb-12">
+        <section id="semanas-tematicas" class="mt-24">
+            <div class="text-center mb-12" data-aos="fade-up">
                 <h3 class="text-4xl font-bold text-blue-900">Cronograma de 3 Semanas Temáticas</h3>
                 <p class="mt-2 text-lg text-gray-700">¡Cada semana es una aventura distinta con un show de cierre espectacular!</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                    <div class="bg-blue-900 text-white text-center py-3">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-900 text-white text-center py-3 transition-colors duration-300 group-hover:bg-blue-800">
                         <h4 class="text-sm font-bold text-yellow-300 uppercase tracking-widest">Semana #1</h4>
                         <p class="text-xl font-bold">03 al 07 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 font-emoji flex gap-2">
-                            <span>⚽&#xFE0F;</span>
-                            <span>🏅&#xFE0F;</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
+                            <span>⚽️</span><span>🏅️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Mundial & Olimpiadas</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -176,20 +180,19 @@
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Competencias Sanas</li>
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Entrega de Medallas</li>
                         </ul>
-                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full">
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full mt-auto">
                             <p class="font-bold text-blue-900">Cierre: ¡Cama Elástica! 🤸</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                    <div class="bg-blue-900 text-white text-center py-3">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-blue-900 text-white text-center py-3 transition-colors duration-300 group-hover:bg-blue-800">
                         <h4 class="text-sm font-bold text-yellow-300 uppercase tracking-widest">Semana #2</h4>
                         <p class="text-xl font-bold">10 al 14 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 font-emoji flex gap-2">
-                            <span>🔬&#xFE0F;</span>
-                            <span>🧪&#xFE0F;</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
+                            <span>🔬️</span><span>🧪️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Laboratorio de Genios</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -197,20 +200,19 @@
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Volcanes en Erupción</li>
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Lógica y Experimentos</li>
                         </ul>
-                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full">
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full mt-auto">
                             <p class="font-bold text-blue-900">Cierre: Fiesta de Show 🎉</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition duration-300">
-                    <div class="bg-blue-900 text-white text-center py-3">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-2xl transition duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-blue-900 text-white text-center py-3 transition-colors duration-300 group-hover:bg-blue-800">
                         <h4 class="text-sm font-bold text-yellow-300 uppercase tracking-widest">Semana #3</h4>
                         <p class="text-xl font-bold">17 al 21 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 font-emoji flex gap-2">
-                            <span>🕵️‍♂️</span>
-                            <span>🔍&#xFE0F;</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
+                            <span>🕵️‍♂️</span><span>🔍️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Agencia de Detectives</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -218,7 +220,7 @@
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Búsqueda del Tesoro</li>
                             <li><i class="fas fa-check text-green-500 mr-2"></i> Pistas y Acertijos</li>
                         </ul>
-                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full">
+                        <div class="bg-sky-100 p-3 rounded-lg border border-sky-200 w-full mt-auto">
                             <p class="font-bold text-blue-900">Cierre: Show de Magia 🎩</p>
                         </div>
                     </div>
@@ -226,15 +228,15 @@
             </div>
         </section>
 
-        <section id="precio" class="mt-20">
-            <div class="text-center mb-10">
+        <section id="precio" class="mt-24">
+            <div class="text-center mb-10" data-aos="fade-up">
                 <h3 class="text-4xl font-bold text-blue-900">Información y Detalle de Pagos</h3>
                 <p class="mt-2 text-lg text-gray-700">Elige el plan que mejor se adapte a tu familia.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-300 border-4 border-yellow-300 relative flex flex-col justify-between">
-                    <div class="absolute -top-4 right-4 bg-yellow-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-500 border-4 border-yellow-300 relative flex flex-col justify-between" data-aos="flip-left" data-aos-delay="100">
+                    <div class="absolute -top-4 right-4 bg-yellow-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide animate-pulse">
                         ¡Aprovecha!
                     </div>
                     <h3 class="text-2xl font-semibold">PREVENTA JUNIO</h3>
@@ -255,36 +257,35 @@
                     </div>
                 </div>
                 
-                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center">
+                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center hover:border-blue-300 transition duration-300" data-aos="flip-left" data-aos-delay="200">
                     <h3 class="text-xl font-semibold text-gray-500">COSTO REGULAR</h3>
                     <p class="text-4xl font-bold my-4 text-blue-900">$55</p>
                     <p class="text-lg text-gray-600">por semana</p>
                 </div>
 
-                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center">
+                <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center hover:border-blue-300 transition duration-300" data-aos="flip-left" data-aos-delay="300">
                     <h3 class="text-xl font-semibold text-gray-500">DÍA ÚNICO DE DISFRUTE</h3>
                     <p class="text-4xl font-bold my-4 text-orange-500">$15</p>
                     <p class="text-sm text-gray-500">(Sujeto a disponibilidad de cupo)</p>
                 </div>
             </div>
 
-            <div class="mt-8 max-w-3xl mx-auto bg-blue-50 p-6 rounded-xl text-center border border-blue-100 shadow-sm">
+            <div class="mt-8 max-w-3xl mx-auto bg-blue-50 p-6 rounded-xl text-center border border-blue-100 shadow-sm" data-aos="fade-up" data-aos-delay="400">
                 <p class="text-blue-900 font-semibold"><i class="fas fa-check-circle text-green-500 mr-2"></i> Tu inscripción incluye: Coordinadores Especializados, Materiales y Guías, Inglés Inmersivo diario y Juegos de Lógica/Deportes.</p>
             </div>
         </section>
 
-        <section id="promociones" class="mt-20">
-            <div class="text-center mb-10">
+        <section id="promociones" class="mt-24">
+            <div class="text-center mb-10" data-aos="fade-up">
                 <h3 class="text-4xl font-bold text-blue-900">¡Nuestras Diver-Promociones!</h3>
                 <p class="mt-2 text-lg text-gray-700">Aprovecha estos descuentos especiales y disfruten las vacaciones en grupo.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gradient-to-br from-green-400 to-emerald-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto overflow-hidden p-2">
+                <div class="bg-gradient-to-br from-green-400 to-emerald-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between" data-aos="fade-right" data-aos-duration="1000">
                     <div>
                         <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
-                            <span>👦&#xFE0F;</span>
-                            <span>👧&#xFE0F;</span>
+                            <span>👦️</span><span>👧️</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Brothers</h4>
                         <p class="text-base opacity-95">Inscribe a dos o más hermanos y asegura la diversión de toda la familia.</p>
@@ -295,11 +296,10 @@
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-teal-400 to-cyan-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between">
+                <div class="bg-gradient-to-br from-teal-400 to-cyan-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between" data-aos="fade-left" data-aos-duration="1000">
                     <div>
                         <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
-                            <span>🤝&#xFE0F;</span>
-                            <span>✨&#xFE0F;</span>
+                            <span>🤝️</span><span>✨️</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Friends</h4>
                         <p class="text-base opacity-95">Trae a los mejores amigos de tus hijos para compartir aventuras inolvidables.</p>
@@ -312,17 +312,17 @@
             </div>
         </section>
 
-        <section id="metodos-de-pago" class="mt-20 text-center">
-            <h3 class="text-3xl font-bold text-blue-900">Métodos de Pago Aceptados</h3>
+        <section id="metodos-de-pago" class="mt-24 text-center">
+            <h3 class="text-3xl font-bold text-blue-900" data-aos="fade-up">Métodos de Pago Aceptados</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-yellow-400 w-full">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-yellow-400 w-full transform hover:-translate-y-1 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
                     <h4 class="font-bold text-2xl mb-2 text-blue-900 flex justify-center items-center gap-2">
                         <i class="fa-brands fa-btc text-yellow-500"></i> Binance Pay (USDT)
                     </h4>
                     <p class="text-lg text-gray-700">ID de Pago: <span class="font-semibold">masterubens@gmail.com</span></p>
                     <p class="text-sm text-orange-600 font-bold bg-orange-100 inline-block px-3 py-1 rounded-full mt-3">¡Consulta por precio especial pagando por Binance!</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 text-left md:text-center w-full">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 text-left md:text-center w-full transform hover:-translate-y-1 transition duration-300" data-aos="zoom-in-up" data-aos-delay="200">
                     <h4 class="font-bold text-2xl mb-2 text-blue-900 md:text-center flex justify-center items-center gap-2">
                         <i class="fas fa-mobile-alt text-blue-500"></i> Pago Móvil
                     </h4>
@@ -337,10 +337,10 @@
             </div>
         </section>
 
-        <section id="galeria" class="mt-20 text-center w-full">
+        <section id="galeria" class="mt-24 text-center w-full" data-aos="fade-up">
             <h3 class="text-3xl font-bold text-blue-900">Nuestra Galería de Diver-Momentos</h3>
             <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Explora la diversión y las aventuras de nuestros campamentos anteriores.</p>
-            <div class="carousel-container mt-8 border-4 border-white shadow-xl w-full">
+            <div class="carousel-container mt-8 border-4 border-white shadow-2xl w-full">
                 <div class="carousel-slide w-full">
                     <img src="Diverchicos 1.jpeg" alt="Niños jugando en Diverchicos 1" onerror="this.onerror=null;this.src='https://placehold.co/600x350/e0e0e0/555555?text=Diverchicos+1';" class="w-full h-auto">
                 </div>
@@ -378,11 +378,11 @@
 
     </main>
 
-    <footer class="bg-blue-900 text-white mt-20 border-t-8 border-orange-500 w-full">
+    <footer class="bg-blue-900 text-white mt-24 border-t-8 border-orange-500 w-full" data-aos="fade-in" data-aos-duration="1500">
         <div class="container mx-auto px-6 py-10 text-center">
-            <h2 class="text-3xl font-bold mb-6 uppercase">¿Listo para apartar tu cupo?</h2>
+            <h2 class="text-3xl font-bold mb-6 uppercase" data-aos="zoom-in">¿Listo para apartar tu cupo?</h2>
             
-            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-lg text-xl mb-8 transform hover:-translate-y-1">
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-xl text-xl mb-8 transform hover:-translate-y-2 hover:scale-105 animate-bounce">
                 👉 Escribe "CONFIRMAR" al WhatsApp
             </a>
 
@@ -404,9 +404,19 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
+            // --- INICIALIZAR ANIMACIONES AOS ---
+            AOS.init({
+                once: true, // La animación ocurre solo una vez al bajar
+                offset: 100, // Empieza a animar 100px antes de que el elemento entre a pantalla
+                duration: 800, // Duración por defecto de 0.8 segundos (muy suave)
+                easing: 'ease-out-cubic',
+            });
+
             // --- SCRIPT DEL CARRUSEL ---
             let currentSlide = 0;
             const slides = document.querySelectorAll('.carousel-slide');
