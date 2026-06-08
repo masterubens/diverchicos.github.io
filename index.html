@@ -15,6 +15,26 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                // Definición del color Rojo Brand extraído del logo
+                'brand-red': '#e31e24', 
+              },
+              fontFamily: {
+                // Jerarquía de fuentes optimizada para prioridad de color de emojis
+                emoji: ['"Apple Color Emoji"', '"Segoe UI Emoji"', '"Noto Color Emoji"', '"Segoe UI Symbol"', '"Android Emoji"', '"EmojiOne Color"', 'sans-serif'],
+              },
+              // Configuración de la animación personalizada que rebota solo dos veces
+              animation: {
+                'bounce-twice': 'bounce 1s ease-in-out 2', 
+              }
+            },
+          },
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,10 +43,10 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden; /* Evita scroll horizontal con las animaciones */
+            overflow-x: hidden; /* Evita scroll horizontal con las animaciones AOS */
         }
         
-        /* Stack tipográfico nativo para Emojis sin hacks de color */
+        /* Stack tipográfico nativo para Emojis sin hacks de color (Unicode SV16 usado en HTML) */
         .font-emoji {
             font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", sans-serif !important;
             font-style: normal !important;
@@ -102,7 +122,7 @@
 </head>
 <body class="bg-sky-100 text-gray-800">
 
-    <header class="bg-blue-900 text-white shadow-md border-b-8 border-orange-500 sticky top-0 z-50 transition-all duration-300">
+    <header class="bg-blue-900 text-white shadow-md border-b-8 border-brand-red sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-2 flex flex-col sm:flex-row sm:items-center gap-y-2 sm:justify-between">
             <div class="flex items-center space-x-3 flex-shrink-0 self-start sm:self-auto" data-aos="fade-right">
                 <div class="h-20 w-20 sm:h-24 sm:w-24 bg-white rounded-full border-2 border-white flex items-center justify-center flex-shrink-0 shadow-md">
@@ -110,26 +130,26 @@
                 </div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-white">Diverchicos</h1>
             </div>
-            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="bg-orange-500 text-white font-bold py-2 px-6 rounded-full hover:bg-orange-600 transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md animate-bounce" data-aos="fade-left">¡Inscríbete Hoy!</a>
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="bg-brand-red text-white font-bold py-2 px-6 rounded-full hover:bg-[#c91a1f] transition duration-300 flex-shrink-0 mx-auto sm:mx-0 shadow-md animate-bounce" data-aos="fade-left">¡Inscríbete Hoy!</a>
         </nav>
     </header>
 
     <main class="container mx-auto px-6 py-12 overflow-hidden">
         <section class="text-center">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-orange-500 mb-2 mt-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);" data-aos="fade-down">PLAN VACACIONAL 2026</h1>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-brand-red mb-2 mt-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);" data-aos="fade-down">PLAN VACACIONAL 2026</h1>
             <h2 class="text-3xl md:text-4xl font-bold text-blue-900 leading-tight mb-6" data-aos="fade-down" data-aos-delay="100">¿Trabajas todo el día?</h2>
             
             <p class="mt-4 text-xl text-gray-700 max-w-3xl mx-auto font-semibold" data-aos="fade-up" data-aos-delay="200">¡Diverchicos te resuelve las vacaciones con 8 años de experiencia respaldándonos!</p>
             
             <div class="mt-5" data-aos="zoom-in" data-aos-delay="300">
                 <span class="inline-flex items-center gap-2 bg-blue-100 text-blue-900 font-bold px-5 py-2 rounded-full border-2 border-blue-200 shadow-sm text-lg">
-                    <i class="fas fa-child text-orange-500"></i> Para niños y niñas de 4 a 10 años
+                    <i class="fas fa-child text-brand-red"></i> Para niños y niñas de 4 a 10 años
                 </span>
             </div>
             
             <div class="mt-8 flex flex-col md:flex-row justify-center items-stretch gap-6 text-lg font-semibold text-blue-900 max-w-4xl mx-auto">
                 <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="400">
-                    <p class="flex items-center justify-center gap-2"><i class="far fa-clock text-orange-500 text-2xl"></i> 8:00 AM a 4:00 PM</p>
+                    <p class="flex items-center justify-center gap-2"><i class="far fa-clock text-brand-red text-2xl"></i> 8:00 AM a 4:00 PM</p>
                     <p class="text-sm text-gray-500 mt-1 text-center">(Tú envías su comida, ¡nosotros la servimos! 🥪💼)</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-md border-t-4 border-blue-900 flex-1 flex flex-col justify-center transform hover:-translate-y-1 transition duration-300" data-aos="fade-up" data-aos-delay="500">
@@ -172,7 +192,8 @@
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
                         <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
-                            <span>⚽️</span><span>🏅️</span>
+                            <span>⚽️</span>
+                            <span>🏅️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Mundial & Olimpiadas</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -192,7 +213,8 @@
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
                         <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
-                            <span>🔬️</span><span>🧪️</span>
+                            <span>🔬️</span>
+                            <span>🧪️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Laboratorio de Genios</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -212,7 +234,8 @@
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
                         <div class="text-5xl mb-4 font-emoji flex gap-2 transform group-hover:scale-110 transition duration-300">
-                            <span>🕵️‍♂️</span><span>🔍️</span>
+                            <span>🕵️‍♂️</span>
+                            <span>🔍️</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Agencia de Detectives</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -235,7 +258,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-500 border-4 border-yellow-300 relative flex flex-col justify-between" data-aos="flip-left" data-aos-delay="100">
+                <div class="bg-gradient-to-br from-brand-red to-red-700 text-white rounded-2xl shadow-2xl p-8 text-center transform hover:scale-105 transition duration-500 border-4 border-yellow-300 relative flex flex-col justify-between" data-aos="flip-left" data-aos-delay="100">
                     <div class="absolute -top-4 right-4 bg-yellow-300 text-blue-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide animate-pulse">
                         ¡Aprovecha!
                     </div>
@@ -243,7 +266,7 @@
                     <p class="text-5xl font-bold my-4">$50</p>
                     <p class="text-lg font-medium">por semana</p>
                     
-                    <div class="mt-5 bg-black bg-opacity-25 rounded-xl p-3 border border-red-400 shadow-inner">
+                    <div class="mt-5 bg-black bg-opacity-25 rounded-xl p-3 border border-red-500 shadow-inner">
                         <p class="text-xs uppercase tracking-wider mb-2 font-bold text-yellow-200">La preventa finaliza en:</p>
                         <div id="countdown" class="flex justify-center gap-3 text-xl font-mono font-bold">
                             <div class="flex flex-col"><span id="cd-days">00</span><span class="text-[10px] uppercase font-sans font-normal text-gray-200">Días</span></div>
@@ -265,7 +288,7 @@
 
                 <div class="bg-white text-blue-900 rounded-2xl shadow-xl p-8 text-center border-2 border-blue-100 flex flex-col justify-center hover:border-blue-300 transition duration-300" data-aos="flip-left" data-aos-delay="300">
                     <h3 class="text-xl font-semibold text-gray-500">DÍA ÚNICO DE DISFRUTE</h3>
-                    <p class="text-4xl font-bold my-4 text-orange-500">$15</p>
+                    <p class="text-4xl font-bold my-4 text-brand-red">$15</p>
                     <p class="text-sm text-gray-500">(Sujeto a disponibilidad de cupo)</p>
                 </div>
             </div>
@@ -285,7 +308,8 @@
                 <div class="bg-gradient-to-br from-green-400 to-emerald-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between" data-aos="fade-right" data-aos-duration="1000">
                     <div>
                         <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
-                            <span>👦️</span><span>👧️</span>
+                            <span>👦️</span>
+                            <span>👧️</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Brothers</h4>
                         <p class="text-base opacity-95">Inscribe a dos o más hermanos y asegura la diversión de toda la familia.</p>
@@ -299,7 +323,8 @@
                 <div class="bg-gradient-to-br from-teal-400 to-cyan-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between" data-aos="fade-left" data-aos-duration="1000">
                     <div>
                         <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
-                            <span>🤝️</span><span>✨️</span>
+                            <span>🤝️</span>
+                            <span>✨️</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Friends</h4>
                         <p class="text-base opacity-95">Trae a los mejores amigos de tus hijos para compartir aventuras inolvidables.</p>
@@ -315,12 +340,12 @@
         <section id="metodos-de-pago" class="mt-24 text-center">
             <h3 class="text-3xl font-bold text-blue-900" data-aos="fade-up">Métodos de Pago Aceptados</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 max-w-4xl mx-auto">
-                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-yellow-400 w-full transform hover:-translate-y-1 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-brand-red w-full transform hover:-translate-y-1 transition duration-300" data-aos="zoom-in-up" data-aos-delay="100">
                     <h4 class="font-bold text-2xl mb-2 text-blue-900 flex justify-center items-center gap-2">
-                        <i class="fa-brands fa-btc text-yellow-500"></i> Binance Pay (USDT)
+                        <i class="fa-brands fa-btc text-brand-red"></i> Binance Pay (USDT)
                     </h4>
                     <p class="text-lg text-gray-700">ID de Pago: <span class="font-semibold">masterubens@gmail.com</span></p>
-                    <p class="text-sm text-orange-600 font-bold bg-orange-100 inline-block px-3 py-1 rounded-full mt-3">¡Consulta por precio especial pagando por Binance!</p>
+                    <p class="text-sm text-red-700 font-bold bg-red-100 inline-block px-3 py-1 rounded-full mt-3">¡Consulta por precio especial pagando por Binance!</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-md border-t-4 border-blue-500 text-left md:text-center w-full transform hover:-translate-y-1 transition duration-300" data-aos="zoom-in-up" data-aos-delay="200">
                     <h4 class="font-bold text-2xl mb-2 text-blue-900 md:text-center flex justify-center items-center gap-2">
@@ -378,11 +403,11 @@
 
     </main>
 
-    <footer class="bg-blue-900 text-white mt-24 border-t-8 border-orange-500 w-full" data-aos="fade-in" data-aos-duration="1500">
+    <footer class="bg-blue-900 text-white mt-24 border-t-8 border-brand-red w-full" data-aos="fade-up" data-aos-duration="1000">
         <div class="container mx-auto px-6 py-10 text-center">
             <h2 class="text-3xl font-bold mb-6 uppercase" data-aos="zoom-in">¿Listo para apartar tu cupo?</h2>
             
-            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="inline-block bg-orange-500 text-white font-bold py-4 px-8 rounded-full hover:bg-orange-600 transition duration-300 shadow-xl text-xl mb-8 transform hover:-translate-y-2 hover:scale-105 animate-bounce">
+            <a href="https://wa.me/584120312648?text=Hola%20Prof.%20Karina%2C%20vengo%20de%20la%20p%C3%A1gina%20web.%20Quiero%20CONFIRMAR%20el%20cupo%20de%20preventa%20para%20el%20Plan%20Vacacional." target="_blank" class="inline-block bg-brand-red text-white font-bold py-4 px-8 rounded-full hover:bg-[#c91a1f] transition duration-300 shadow-lg text-xl mb-8 transform hover:-translate-y-2 hover:scale-105 animate-bounce-twice">
                 👉 Escribe "CONFIRMAR" al WhatsApp
             </a>
 
@@ -394,7 +419,7 @@
                 </div>
                 <div class="w-full">
                     <p class="text-gray-400 text-sm uppercase tracking-wide mb-1">Redes Sociales</p>
-                    <a href="https://www.instagram.com/vacaciones_diverchicos" target="_blank" class="text-lg hover:text-orange-400 transition flex justify-center items-center gap-2 w-full">
+                    <a href="https://www.instagram.com/vacaciones_diverchicos" target="_blank" class="text-lg hover:text-red-400 transition flex justify-center items-center gap-2 w-full">
                         <i class="fab fa-instagram text-2xl"></i> @vacaciones_diverchicos
                     </a>
                 </div>
@@ -413,7 +438,7 @@
             AOS.init({
                 once: true, // La animación ocurre solo una vez al bajar
                 offset: 100, // Empieza a animar 100px antes de que el elemento entre a pantalla
-                duration: 800, // Duración por defecto de 0.8 segundos (muy suave)
+                duration: 800, // Duración por defecto de 0.8 segundos
                 easing: 'ease-out-cubic',
             });
 
