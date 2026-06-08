@@ -12,18 +12,6 @@
     <meta property="og:type" content="website">
     <link rel="icon" href="favicon.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              fontFamily: {
-                // Jerarquía de fuentes optimizada para prioridad de color
-                emoji: ['"Apple Color Emoji"', '"Segoe UI Emoji"', '"Noto Color Emoji"', '"Segoe UI Symbol"', '"Android Emoji"', '"EmojiOne Color"', 'sans-serif'],
-              },
-            },
-          },
-        }
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -32,19 +20,12 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        /* Clase CSS crítica para forzar emojis a COLOR */
-        .emoji-color {
+        
+        /* Stack tipográfico nativo para Emojis sin hacks de color */
+        .font-emoji {
             font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Segoe UI Symbol", sans-serif !important;
-            color: transparent !important;
-            text-shadow: 0 0 0 #4a5568 !important; /* Fallback color gris oscuro para el motor de render */
-            -webkit-text-fill-color: transparent !important;
-            display: inline-block;
             font-style: normal !important;
-            font-variant: normal !important;
-            text-transform: none !important;
-            line-height: 1;
-            -webkit-font-smoothing: auto !important;
-            -moz-osx-font-smoothing: auto !important;
+            font-weight: normal !important;
         }
 
         /* Carrusel CSS */
@@ -185,9 +166,9 @@
                         <p class="text-xl font-bold">03 al 07 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 flex gap-1">
-                            <span class="emoji-color">⚽</span>
-                            <span class="emoji-color">🏅</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2">
+                            <span>⚽&#xFE0F;</span>
+                            <span>🏅&#xFE0F;</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Mundial & Olimpiadas</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -206,9 +187,9 @@
                         <p class="text-xl font-bold">10 al 14 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 flex gap-1">
-                            <span class="emoji-color">🔬</span>
-                            <span class="emoji-color">🧪</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2">
+                            <span>🔬&#xFE0F;</span>
+                            <span>🧪&#xFE0F;</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Laboratorio de Genios</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -227,9 +208,9 @@
                         <p class="text-xl font-bold">17 al 21 Agosto</p>
                     </div>
                     <div class="p-6 text-center flex flex-col items-center">
-                        <div class="text-5xl mb-4 flex gap-1">
-                            <span class="emoji-color">🕵️‍♂️</span>
-                            <span class="emoji-color">🔍</span>
+                        <div class="text-5xl mb-4 font-emoji flex gap-2">
+                            <span>🕵️‍♂️</span>
+                            <span>🔍&#xFE0F;</span>
                         </div>
                         <h5 class="text-2xl font-bold text-gray-800 mb-2">Agencia de Detectives</h5>
                         <ul class="text-gray-600 space-y-2 mb-4 text-left px-4 self-start">
@@ -301,9 +282,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                 <div class="bg-gradient-to-br from-green-400 to-emerald-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="text-4xl mb-3 flex justify-center items-center gap-1">
-                            <span class="emoji-color">👦</span>
-                            <span class="emoji-color">👧</span>
+                        <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
+                            <span>👦&#xFE0F;</span>
+                            <span>👧&#xFE0F;</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Brothers</h4>
                         <p class="text-base opacity-95">Inscribe a dos o más hermanos y asegura la diversión de toda la familia.</p>
@@ -316,9 +297,9 @@
 
                 <div class="bg-gradient-to-br from-teal-400 to-cyan-600 text-white rounded-2xl shadow-xl p-6 text-center transform hover:scale-105 transition duration-300 flex flex-col justify-between">
                     <div>
-                        <div class="text-4xl mb-3 flex justify-center items-center gap-2">
-                            <span class="emoji-color">🤝</span>
-                            <span class="emoji-color">✨</span>
+                        <div class="text-4xl mb-3 flex justify-center items-center gap-2 font-emoji">
+                            <span>🤝&#xFE0F;</span>
+                            <span>✨&#xFE0F;</span>
                         </div>
                         <h4 class="text-2xl font-bold mb-2 uppercase">Promo Diver-Friends</h4>
                         <p class="text-base opacity-95">Trae a los mejores amigos de tus hijos para compartir aventuras inolvidables.</p>
